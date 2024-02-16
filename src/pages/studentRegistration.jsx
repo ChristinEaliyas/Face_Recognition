@@ -14,6 +14,7 @@ function StudentRegistration() {
   const [yoj, setYoj] = useState("");
   const [year, setYear] = useState("");
   const [club, setClub] = useState("");
+  const [msg, setMsg] = useState("");
   const [image, setImage] = useState(null);
   const [imgPreview, setImgPreview] = useState(null);
 
@@ -38,6 +39,12 @@ function StudentRegistration() {
       window.removeEventListener("resize", updateDimension);
     };
   }, []);
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setMsg("");
+    }, 3000);
+    return () => clearTimeout(timeoutId);
+  }, [msg]);
 
   const convertImageSrcToByteArray = async (imageSrc) => {
     const response = await fetch(imageSrc);
@@ -58,6 +65,20 @@ function StudentRegistration() {
   const retake = () => {
     setImgPreview(null);
   };
+
+  const stateCleaner = () => {
+    setName("");
+    setRegNo("");
+    setEmail("");
+    setGender("");
+    setDept("");
+    setYoj("");
+    setYear("");
+    setClub("");
+    setImage(null);
+    setImgPreview(null);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -106,17 +127,11 @@ function StudentRegistration() {
     const response_data = await response.json();
     if (response.status === 201) {
       console.log(response_data);
-      setName("");
-      setRegNo("");
-      setEmail("");
-      setGender("");
-      setDept("");
-      setYoj("");
-      setYear("");
-      setClub("");
-      setImage(null);
-      setImgPreview(null);
+      stateCleaner();
+      setMsg("User Created");
     } else {
+      stateCleaner();
+      setMsg("The Registration Was Failed");
       console.log(response_data);
     }
   };
@@ -249,6 +264,7 @@ function StudentRegistration() {
             </div>
             <div className="button">
               <input type="submit" value="Register" />
+              {msg !== null ? <h3>{msg}</h3> : <h3></h3>}
             </div>
           </form>
         </div>

@@ -105,7 +105,10 @@ form .button {
   transition: all 0.3s ease;
   background: linear-gradient(135deg, #d44300, #c18d14);
 }
-
+.button h3 {
+  color: #fff;
+  font-size: 25px;
+}
 .camera-feed .button input {
   padding: 10px;
 }
