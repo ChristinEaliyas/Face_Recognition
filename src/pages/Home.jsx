@@ -106,14 +106,14 @@ function Home() {
           setIsRedRipple(false);
         }}>
         <div className="login-camera-left">
-          <Webcam
-            height={screenSize.height * (50 / 100)}
-            width={screenSize.width * (50 / 100)}
-            className="camera-view"
-            audio={false}
-            ref={webcamRef}
-            screenshotFormat="image/jpeg"
-          />
+        <Webcam
+          height={screenSize.height * (50 / 100)}
+          width={screenSize.width * (50 / 100)}
+          className="camera-view inverted" 
+          audio={false}
+          ref={webcamRef}
+          screenshotFormat="image/jpeg"
+        />
         </div>
         <div className="student-detail-right">
           <div className="card">

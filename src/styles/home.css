@@ -31,13 +31,25 @@
 }
 
 .login-camera-left {
-  width: 60%;
+  width: 65%;
 }
+
+.inverted {
+  transform: scaleX(-1);
+}
+
+.camera-view {
+  margin-top: 80px; 
+  margin-left: 50px;
+}
+
 .student-detail-right {
   width: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
+  align-items: flex-start; 
+  margin-top: 20px; 
 }
 .student-detail-right .card p {
   width: 600px;
@@ -46,6 +58,12 @@
   font-weight: 500;
   color: #fff;
 }
+
+.student-detail-right .card {
+  margin-top: 150px; 
+  margin-right: 80px;
+}
+
 .student-detail-right .card #student-name {
   font-size: 50px;
   background: linear-gradient(
